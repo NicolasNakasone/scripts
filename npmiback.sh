@@ -205,9 +205,12 @@ server.listen(PORT, () => {
 mkdir src
 cd src
 
-echo 'import cors from "cors"
-import express, { NextFunction, Request, Response } from "express"
-import logger from "morgan"
+echo 'import cors from 'cors'
+import { configDotenv } from 'dotenv'
+import express, { NextFunction, Request, Response } from 'express'
+import logger from 'morgan'
+
+configDotenv()
 
 const { API_PORT, CLIENT_URL } = process.env
 
@@ -220,15 +223,15 @@ server.use(
   })
 )
 
-server.set("port", API_PORT || 4000)
+server.set('port', API_PORT || 4000)
 
-server.use(logger("dev"))
-server.use(express.json({ limit: "50mb" }))
+server.use(logger('dev'))
+server.use(express.json({ limit: '50mb' }))
 
 server.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   // @ts-expect-error Type Error does not include status
   const status = err.status || 500
-  const message = err.message /* || err */ || "Internal Server Error"
+  const message = err.message /* || err */ || 'Internal Server Error'
   console.error(err)
   res.status(status).send(message)
   next()
