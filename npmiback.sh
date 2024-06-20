@@ -20,6 +20,9 @@ PACKAGE_NAME=$(echo "$PROJECT_NAME-api" | tr '[:upper:]' '[:lower:]')
 mkdir "$PROJECT_NAME"
 cd "$PROJECT_NAME"
 
+# Crear un archivo .nvmrc (para la versión de nvm)
+echo 'v18.15.0' > .nvmrc
+
 # Crear un archivo .gitignore
 echo '# Logs
 logs
