@@ -20,6 +20,10 @@ PACKAGE_NAME=$(echo "$PROJECT_NAME-api" | tr '[:upper:]' '[:lower:]')
 mkdir "$PROJECT_NAME"
 cd "$PROJECT_NAME"
 
+# Crear un .env para variables de entorno
+echo 'API_PORT = 3000
+CLIENT_URL = "http://localhost:5173"' > .env
+
 # Crear un archivo .nvmrc (para la versión de nvm)
 echo 'v18.15.0' > .nvmrc
 
