@@ -224,49 +224,4 @@ echo '{
   "exclude": ["node_modules"]
 }' > tsconfig.json
 
-
-echo '/* eslint-disable no-console */
-import { server } from "src/server"
-
-const PORT = server.get("port")
-
-server.listen(PORT, () => {
-  console.log(`Servidor escuchando en puerto ${PORT}`)
-})' > index.ts
-
-mkdir src
-cd src
-
-echo 'import cors from 'cors'
-import { configDotenv } from 'dotenv'
-import express, { NextFunction, Request, Response } from 'express'
-import logger from 'morgan'
-
-configDotenv()
-
-const { API_PORT, CLIENT_URL } = process.env
-
-export const server = express()
-
-server.use(
-  cors({
-    origin: CLIENT_URL,
-    credentials: true,
-  })
-)
-
-server.set('port', API_PORT || 4000)
-
-server.use(logger('dev'))
-server.use(express.json({ limit: '50mb' }))
-
-server.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  // @ts-expect-error Type Error does not include status
-  const status = err.status || 500
-  const message = err.message /* || err */ || 'Internal Server Error'
-  console.error(err)
-  res.status(status).send(message)
-  next()
-})' > server.ts
-
 echo "Proyecto $PROJECT_NAME creado con éxito! 🤩🥳"
