@@ -203,43 +203,24 @@ echo '{
 echo '{
   "compilerOptions": {
     "baseUrl": ".",
-    "incremental": true,
-    "target": "ES6",
-    "lib": ["ESNext"],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-
-    "module": "CommonJS",
+    "jsx": "react-jsx",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-
-    "declaration": true,
-    "sourceMap": true,
-
-    "outDir": "./dist",
-    "removeComments": true,
-
-    "isolatedModules": false,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": false,
-
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "skipLibCheck": true,
-
-    "types": ["node", "express"],
-
-    "paths": {
-      "src/*": ["src/*"]
-    }
+    "isolatedModules": true,
+    "noEmit": true,
+    "types": ["vite/client"]
   },
-  "include": ["src/**/**.ts", "index.ts"],
+  "include": ["./src", "./.eslintrc.json", "./vite.config.ts"],
   "exclude": ["node_modules"]
 }' > tsconfig.json
 
