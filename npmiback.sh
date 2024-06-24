@@ -52,17 +52,17 @@ dist-ssr
 .env' > .gitignore
 
 # Crear un archivo .prettierrc.cjs
-echo 'module.exports = {
+echo "module.exports = {
   tabWidth: 2,
-  arrowParens: "avoid",
+  arrowParens: 'avoid',
   singleQuote: true,
   semi: false,
-  trailingComma: "es5",
+  trailingComma: 'es5',
   bracketSpacing: true,
-  endOfLine: "lf",
+  endOfLine: 'lf',
   // Por algún motivo, al setear printWidth: 100, en realidad te permite 101 lineas de largo
   printWidth: 99,
-}' > .prettierrc.cjs
+}" > .prettierrc.cjs
 
 # Crea una carpeta server para el backend
 mkdir server
@@ -193,19 +193,19 @@ echo '{
 }' > tsconfig.json
 
 
-echo '/* eslint-disable no-console */
-import { server } from "src/server"
+echo "/* eslint-disable no-console */
+import { server } from 'src/server'
 
-const PORT = server.get("port")
+const PORT = server.get('port')
 
 server.listen(PORT, () => {
   console.log(`Servidor escuchando en puerto ${PORT}`)
-})' > index.ts
+})" > index.ts
 
 mkdir src
 cd src
 
-echo 'import cors from 'cors'
+echo "import cors from 'cors'
 import { configDotenv } from 'dotenv'
 import express, { NextFunction, Request, Response } from 'express'
 import logger from 'morgan'
@@ -235,6 +235,6 @@ server.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err)
   res.status(status).send(message)
   next()
-})' > server.ts
+})" > server.ts
 
 echo "Proyecto $PROJECT_NAME creado con éxito! 🤩🥳"
