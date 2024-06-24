@@ -20,9 +20,6 @@ PACKAGE_NAME=$(echo "$PROJECT_NAME-app" | tr '[:upper:]' '[:lower:]')
 mkdir "$PROJECT_NAME"
 cd "$PROJECT_NAME"
 
-# Crear un .env para variables de entorno
-echo 'VITE_API_URL = "http://localhost:3000"' > .env
-
 # Crear un archivo .nvmrc (para la versión de nvm)
 echo 'v18.15.0' > .nvmrc
 
@@ -70,6 +67,9 @@ echo 'module.exports = {
 # Crea una carpeta client para el frontend
 mkdir client
 cd client
+
+# Crear un .env para variables de entorno
+echo 'VITE_API_URL = "http://localhost:3000"' > .env
 
 # Inicializa un nuevo proyecto npm
 npm init -y
